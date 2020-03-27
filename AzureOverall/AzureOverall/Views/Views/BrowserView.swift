@@ -10,6 +10,7 @@ import UIKit
 
 class BrowserView: UIView {
 
+  //MARK: UI Elements
     lazy var searchBar: UISearchBar = {
         let search = UISearchBar()
         return search
@@ -29,10 +30,10 @@ class BrowserView: UIView {
         return collection
       }()
       
-
+// MARK: Initializers
         override init(frame: CGRect) {
             super.init(frame: frame)
-           
+            setupViews()
         }
         
         required init?(coder: NSCoder) {
@@ -40,9 +41,14 @@ class BrowserView: UIView {
         }
       
       private func setupViews() {
-        
+        setUpCartIcon()
+        setupSearchBar()
+        setupBrowseCollectionView()
       }
       
+//MARK: Private Constraints
+    //NOTE: the cartIcon anchors the constraints for the other UI elements. Changing the cartIcon constraints will affect the other constraints.
+  
       private func setUpCartIcon() {
         addSubview(cartIcon)
         cartIcon.translatesAutoresizingMaskIntoConstraints = false
@@ -61,7 +67,7 @@ class BrowserView: UIView {
           searchBar.topAnchor.constraint(equalTo: cartIcon.topAnchor),
           searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
           searchBar.trailingAnchor.constraint(equalTo: cartIcon.leadingAnchor),
-//          searchBar.heightAnchor.constraint(equalToConstant: cartIcon.heightAnchor)
+          searchBar.heightAnchor.constraint(equalTo: cartIcon.heightAnchor)
         ])
       }
   

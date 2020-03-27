@@ -22,6 +22,10 @@
 		3C5570C0242E49E70079769D /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570BF242E49E70079769D /* CartTableViewCell.swift */; };
 		3C5570C2242E630F0079769D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570C1242E630F0079769D /* Constants.swift */; };
 		3C5570C4242E6B1C0079769D /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570C3242E6B1C0079769D /* BrowserView.swift */; };
+		3C5570C8242E7A4D0079769D /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570C7242E7A4D0079769D /* RecipeModel.swift */; };
+		3C5570CA242E8C280079769D /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570C9242E8C280079769D /* AppError.swift */; };
+		3C5570CC242E8C3B0079769D /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570CB242E8C3B0079769D /* NetworkHelper.swift */; };
+		3C5570CE242E8C5F0079769D /* SpoonacularAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570CD242E8C5F0079769D /* SpoonacularAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 		3C5570BF242E49E70079769D /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		3C5570C1242E630F0079769D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3C5570C3242E6B1C0079769D /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
+		3C5570C7242E7A4D0079769D /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		3C5570C9242E8C280079769D /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		3C5570CB242E8C3B0079769D /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		3C5570CD242E8C5F0079769D /* SpoonacularAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonacularAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				3C5570C1242E630F0079769D /* Constants.swift */,
+				3C5570C7242E7A4D0079769D /* RecipeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -160,6 +169,9 @@
 		3C5570B6242E490C0079769D /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				3C5570C9242E8C280079769D /* AppError.swift */,
+				3C5570CB242E8C3B0079769D /* NetworkHelper.swift */,
+				3C5570CD242E8C5F0079769D /* SpoonacularAPIClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -280,14 +292,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C5570CC242E8C3B0079769D /* NetworkHelper.swift in Sources */,
 				3C557092242E483B0079769D /* ViewController.swift in Sources */,
 				3C557098242E483B0079769D /* AzureOverall.xcdatamodeld in Sources */,
 				3C5570BE242E49CF0079769D /* BrowseCollectionViewCell.swift in Sources */,
 				3C5570C0242E49E70079769D /* CartTableViewCell.swift in Sources */,
+				3C5570CA242E8C280079769D /* AppError.swift in Sources */,
 				3C5570C4242E6B1C0079769D /* BrowserView.swift in Sources */,
+				3C5570C8242E7A4D0079769D /* RecipeModel.swift in Sources */,
 				3C5570BC242E499B0079769D /* RecipeDetailViewController.swift in Sources */,
 				3C5570C2242E630F0079769D /* Constants.swift in Sources */,
 				3C55708E242E483B0079769D /* AppDelegate.swift in Sources */,
+				3C5570CE242E8C5F0079769D /* SpoonacularAPIClient.swift in Sources */,
 				3C557090242E483B0079769D /* SceneDelegate.swift in Sources */,
 				3C5570BA242E49610079769D /* CartViewController.swift in Sources */,
 				3C5570B8242E494F0079769D /* BrowseViewController.swift in Sources */,
