@@ -20,6 +20,8 @@
 		3C5570BC242E499B0079769D /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570BB242E499B0079769D /* RecipeDetailViewController.swift */; };
 		3C5570BE242E49CF0079769D /* BrowseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570BD242E49CF0079769D /* BrowseCollectionViewCell.swift */; };
 		3C5570C0242E49E70079769D /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570BF242E49E70079769D /* CartTableViewCell.swift */; };
+		3C5570C2242E630F0079769D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570C1242E630F0079769D /* Constants.swift */; };
+		3C5570C4242E6B1C0079769D /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570C3242E6B1C0079769D /* BrowserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		3C5570BB242E499B0079769D /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		3C5570BD242E49CF0079769D /* BrowseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseCollectionViewCell.swift; sourceTree = "<group>"; };
 		3C5570BF242E49E70079769D /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		3C5570C1242E630F0079769D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3C5570C3242E6B1C0079769D /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 		3C5570B3242E48C40079769D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3C5570C1242E630F0079769D /* Constants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,6 +139,8 @@
 		3C5570B4242E48CD0079769D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3C5570C6242E6B720079769D /* Views */,
+				3C5570C5242E6B680079769D /* Cells */,
 				3C5570BD242E49CF0079769D /* BrowseCollectionViewCell.swift */,
 				3C5570BF242E49E70079769D /* CartTableViewCell.swift */,
 			);
@@ -155,6 +162,21 @@
 			children = (
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		3C5570C5242E6B680079769D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3C5570C6242E6B720079769D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3C5570C3242E6B1C0079769D /* BrowserView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +284,9 @@
 				3C557098242E483B0079769D /* AzureOverall.xcdatamodeld in Sources */,
 				3C5570BE242E49CF0079769D /* BrowseCollectionViewCell.swift in Sources */,
 				3C5570C0242E49E70079769D /* CartTableViewCell.swift in Sources */,
+				3C5570C4242E6B1C0079769D /* BrowserView.swift in Sources */,
 				3C5570BC242E499B0079769D /* RecipeDetailViewController.swift in Sources */,
+				3C5570C2242E630F0079769D /* Constants.swift in Sources */,
 				3C55708E242E483B0079769D /* AppDelegate.swift in Sources */,
 				3C557090242E483B0079769D /* SceneDelegate.swift in Sources */,
 				3C5570BA242E49610079769D /* CartViewController.swift in Sources */,
