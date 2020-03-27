@@ -9,22 +9,64 @@
 import UIKit
 
 class BrowseViewController: UIViewController {
+  
+//MARK: Variables
+  
+  var recipes = [Recipe]() {
+    didSet {
+      browserViews.browseCollectionView.reloadData()
+    }
+  }
+  
+  var searchString: String = ""
+  
+  
+//MARK: UI Elements
+  
+  lazy var browserViews: BrowserView = {
+    let browser = BrowserView()
+    browser.searchBar.delegate = self
+    browser.browseCollectionView.dataSource = self
+    browser.browseCollectionView.delegate = self
+    return browser
+  }()
 
+  
+//MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
+//MARK: Extensions
+
+extension BrowseViewController: UICollectionViewDelegate {
+  
+}
+
+
+extension BrowseViewController: UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return recipes.count
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    <#code#>
+  }
+}
+
+
+extension BrowseViewController: UISearchBarDelegate {
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    let activityIndicator = UIActivityIndicatorView()
+    activityIndicator.center = self.view.center
+    activityIndicator.startAnimating()
+    self.view.addSubview(activityIndicator)
+    
+    searchBar.resignFirstResponder()
+  }
 }
