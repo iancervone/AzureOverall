@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct Recipe: Codable {
+  let id: Int
+  let title: String
+  let readyInMinutes: Int
+  let servings: Int
+  let image: String
+}
