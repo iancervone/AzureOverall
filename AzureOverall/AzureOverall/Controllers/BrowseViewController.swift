@@ -55,7 +55,12 @@ extension BrowseViewController: UICollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    <#code#>
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifiers.browseCollectionViewCell.rawValue, for: indexPath) as! BrowseCollectionViewCell
+      cell.recipeNameLabel.text = recipes[indexPath.row].title
+      cell.servingsLabel.text = "Servings =  \(recipes[indexPath.row].servings)"
+      cell.timeLabel.text = "Cook time = \(recipes[indexPath.row].readyInMinutes)"
+    return cell
+
   }
 }
 
