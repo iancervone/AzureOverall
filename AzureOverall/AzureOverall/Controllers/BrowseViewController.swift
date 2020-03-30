@@ -37,9 +37,34 @@ class BrowseViewController: UIViewController {
         super.viewDidLoad()
 
     }
-    
+  
+  
+  
+//MARK: Private Functions
+  
+  private func getRecipes() {
+    DispatchQueue.main.async {
+      SpoonacularAPIClient.manager.getRecipes(from: self.searchString){(result) in
+        switch result {
+        case let .success(recipeResults):
+          self.recipes = recipeResults
+        case let .failure(error):
+          self.displayErrorAlert(with: error)
+        }
+      }
+    }
+  }
+  
+  func displayErrorAlert(with error: AppError) {
+    let alertVC = UIAlertController(title: "Error Fetching Data", message: "\(error)", preferredStyle: .alert)
+    alertVC.addAction(UIAlertAction(title: "ok", style: .cancel, handler: nil))
+    present(alertVC, animated: true, completion: nil)
+  }
+
 
 }
+
+
 
 
 //MARK: Extensions
@@ -60,7 +85,6 @@ extension BrowseViewController: UICollectionViewDataSource {
       cell.servingsLabel.text = "Servings =  \(recipes[indexPath.row].servings)"
       cell.timeLabel.text = "Cook time = \(recipes[indexPath.row].readyInMinutes)"
     return cell
-
   }
 }
 
