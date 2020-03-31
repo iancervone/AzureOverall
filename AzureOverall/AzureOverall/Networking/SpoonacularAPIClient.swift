@@ -16,7 +16,7 @@ struct SpoonacularAPIClient {
   
   func getRecipes(from search: String, completionHandler: @escaping (Result<AllRecipes, AppError>) -> Void) {
     // what we want to return as a result is an array of dataWrapper ^^^ because the info we need is that array of each set of info on the weather for that day
-     let recipeURL = "https://api.spoonacular.com/recipes/search?query=\(search)&number=2&apiKey=4393c4b9c3654e31b84f23fd34566150"
+     let recipeURL = "https://api.spoonacular.com/recipes/search?query=\(search)&number=10&apiKey=4393c4b9c3654e31b84f23fd34566150"
      guard let url = URL(string: recipeURL) else {
        completionHandler(.failure(.badURL))
        return

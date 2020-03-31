@@ -38,7 +38,7 @@ class BrowseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       view.addSubview(browserViews)
-      view.backgroundColor = .red
+      view.backgroundColor = .systemBackground
     }
   
   
@@ -113,7 +113,7 @@ extension BrowseViewController: UICollectionViewDataSource {
 
 extension BrowseViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-      let cellSize = CGSize(width: view.frame.width, height: (view.frame.width) * 0.7)
+      let cellSize = CGSize(width: (view.frame.width) - 18, height: (view.frame.width) * 0.75)
         return cellSize
     }
 }

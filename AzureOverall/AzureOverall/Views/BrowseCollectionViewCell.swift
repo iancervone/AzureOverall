@@ -18,16 +18,24 @@ class BrowseCollectionViewCell: UICollectionViewCell {
 
   lazy var recipeNameLabel: UILabel = {
     let label = UILabel()
+    label.lineBreakMode = .byWordWrapping
+    label.numberOfLines = 2
+    label.textAlignment = .center
+    label.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.bold)
     return label
   }()
   
   lazy var servingsLabel: UILabel = {
     let label = UILabel()
+    label.textAlignment = .center
+    label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.regular)
     return label
   }()
   
   lazy var timeLabel: UILabel = {
     let label = UILabel()
+    label.textAlignment = .center
+    label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.regular)
     return label
   }()
   
@@ -35,7 +43,10 @@ class BrowseCollectionViewCell: UICollectionViewCell {
 // MARK: Initializers
    override init(frame: CGRect) {
        super.init(frame: frame)
-      setUpCellView()
+        self.backgroundColor = #colorLiteral(red: 0, green: 0.8224349567, blue: 1, alpha: 1)
+//    self.layer.borderWidth = 2
+//    self.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        setUpCellView()
    }
    
    required init?(coder: NSCoder) {
@@ -47,30 +58,31 @@ class BrowseCollectionViewCell: UICollectionViewCell {
   
 //MARK: Constraints
   private func setUpCellView() {
-    setUpRecipeImage()
     setUpRecipeNameLabel()
     setUpBrowserStackView()
-  }
-  
-  private func setUpRecipeImage() {
-    contentView.addSubview(recipeImage)
-    recipeImage.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      recipeImage.topAnchor.constraint(equalTo: contentView.topAnchor),
-      recipeImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-      recipeImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-      recipeImage.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.7)
-    ])
+    setUpRecipeImage()
   }
   
   private func setUpRecipeNameLabel() {
     contentView.addSubview(recipeNameLabel)
     recipeNameLabel.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      recipeNameLabel.topAnchor.constraint(equalTo: recipeImage.bottomAnchor),
-      recipeNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-      recipeNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-      recipeNameLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.2)
+      recipeNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+      recipeNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+      recipeNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+      recipeNameLabel.heightAnchor.constraint(equalToConstant: 50)
+    ])
+  }
+  
+  private func setUpRecipeImage() {
+    contentView.addSubview(recipeImage)
+    recipeImage.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      recipeImage.topAnchor.constraint(equalTo: recipeNameLabel.bottomAnchor, constant: 1),
+      recipeImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4),
+      recipeImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4),
+//      recipeImage.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.7)
+      recipeImage.bottomAnchor.constraint(equalTo: servingsLabel.topAnchor, constant: -5)
     ])
   }
   
@@ -81,10 +93,10 @@ class BrowseCollectionViewCell: UICollectionViewCell {
     self.addSubview(stackView)
     stackView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      stackView.topAnchor.constraint(equalTo: recipeNameLabel.bottomAnchor),
+      stackView.heightAnchor.constraint(equalToConstant: 20),
       stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
       stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-      stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+      stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
     ])
   }
   
