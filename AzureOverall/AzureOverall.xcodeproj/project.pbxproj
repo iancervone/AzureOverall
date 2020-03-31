@@ -26,6 +26,7 @@
 		3C5570CA242E8C280079769D /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570C9242E8C280079769D /* AppError.swift */; };
 		3C5570CC242E8C3B0079769D /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570CB242E8C3B0079769D /* NetworkHelper.swift */; };
 		3C5570CE242E8C5F0079769D /* SpoonacularAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570CD242E8C5F0079769D /* SpoonacularAPIClient.swift */; };
+		3C5570D02433C6100079769D /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570CF2433C6100079769D /* ImageHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		3C5570C9242E8C280079769D /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		3C5570CB242E8C3B0079769D /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		3C5570CD242E8C5F0079769D /* SpoonacularAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonacularAPIClient.swift; sourceTree = "<group>"; };
+		3C5570CF2433C6100079769D /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				3C5570C9242E8C280079769D /* AppError.swift */,
 				3C5570CB242E8C3B0079769D /* NetworkHelper.swift */,
 				3C5570CD242E8C5F0079769D /* SpoonacularAPIClient.swift */,
+				3C5570CF2433C6100079769D /* ImageHelper.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				3C557098242E483B0079769D /* AzureOverall.xcdatamodeld in Sources */,
 				3C5570BE242E49CF0079769D /* BrowseCollectionViewCell.swift in Sources */,
 				3C5570C0242E49E70079769D /* CartTableViewCell.swift in Sources */,
+				3C5570D02433C6100079769D /* ImageHelper.swift in Sources */,
 				3C5570CA242E8C280079769D /* AppError.swift in Sources */,
 				3C5570C4242E6B1C0079769D /* BrowserView.swift in Sources */,
 				3C5570C8242E7A4D0079769D /* RecipeModel.swift in Sources */,
