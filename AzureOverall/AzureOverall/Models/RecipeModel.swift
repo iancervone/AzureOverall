@@ -8,10 +8,15 @@
 
 import Foundation
 
+struct AllRecipes: Codable {
+    let results: [Recipe]
+}
+
 struct Recipe: Codable {
-  let id: Int
-  let title: String
-  let readyInMinutes: Int
-  let servings: Int
-  let image: String
+    let id: Int
+    let title: String
+    let readyInMinutes: Int
+    let servings: Int
+    let image: String
+    let imageUrls: [String]
 }

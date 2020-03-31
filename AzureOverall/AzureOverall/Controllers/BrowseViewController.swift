@@ -12,11 +12,13 @@ class BrowseViewController: UIViewController {
   
 //MARK: Variables
   
-  var recipes = [Recipe]() {
-    didSet {
-      browserViews.browseCollectionView.reloadData()
-    }
-  }
+  var recipes: AllRecipes?
+  
+//  var recipes = [Recipe]() {
+//    didSet {
+//      browserViews.browseCollectionView.reloadData()
+//    }
+//  }
   
   var searchString: String = ""
   
@@ -35,7 +37,8 @@ class BrowseViewController: UIViewController {
 //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+      view.addSubview(browserViews)
+      view.backgroundColor = .red
     }
   
   
@@ -47,8 +50,13 @@ class BrowseViewController: UIViewController {
       SpoonacularAPIClient.manager.getRecipes(from: self.searchString){(result) in
         switch result {
         case let .success(recipeResults):
+          
           self.recipes = recipeResults
+          self.browserViews.browseCollectionView.reloadData()
+          print(self.recipes?.results[0].title)
+          print("winning")
         case let .failure(error):
+          print("womp womp")
           self.displayErrorAlert(with: error)
         }
       }
@@ -73,29 +81,38 @@ extension BrowseViewController: UICollectionViewDelegate {
   
 }
 
-
 extension BrowseViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return recipes.count
+    return recipes?.results.count ?? 0
   }
-  
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifiers.browseCollectionViewCell.rawValue, for: indexPath) as! BrowseCollectionViewCell
-      cell.recipeNameLabel.text = recipes[indexPath.row].title
-      cell.servingsLabel.text = "Servings =  \(recipes[indexPath.row].servings)"
-      cell.timeLabel.text = "Cook time = \(recipes[indexPath.row].readyInMinutes)"
+    cell.recipeNameLabel.text = recipes?.results[indexPath.row].title ?? " "
+    cell.servingsLabel.text = "Servings:  \(recipes!.results[indexPath.row].servings)"
+      cell.timeLabel.text = "Cook time: \(recipes!.results[indexPath.row].readyInMinutes) min"
     return cell
   }
 }
 
+extension BrowseViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+      let cellSize = CGSize(width: view.frame.width, height: (view.frame.width) * 0.7)
+        return cellSize
+    }
+}
+
 
 extension BrowseViewController: UISearchBarDelegate {
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    searchString = searchBar.text?.lowercased() ?? ""
+  }
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    let activityIndicator = UIActivityIndicatorView()
-    activityIndicator.center = self.view.center
-    activityIndicator.startAnimating()
-    self.view.addSubview(activityIndicator)
-    
+//    let activityIndicator = UIActivityIndicatorView()
+//    activityIndicator.center = self.view.center
+//    activityIndicator.startAnimating()
+//    self.view.addSubview(activityIndicator)
+    print(searchString)
+    getRecipes()
     searchBar.resignFirstResponder()
   }
 }

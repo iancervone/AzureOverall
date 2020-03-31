@@ -1,5 +1,5 @@
 //
-//  SpoonacularAPI.swift
+//  SpoonacularAPIClient.swift
 //  AzureOverall
 //
 //  Created by Ian Cervone on 3/27/20.
@@ -10,14 +10,14 @@
 
 import Foundation
 
-struct DarkSkyAPIClient {
+struct SpoonacularAPIClient {
 
-  static let manager = DarkSkyAPIClient()
+  static let manager = SpoonacularAPIClient()
   
-  func getForecast(from coordinates: String, completionHandler: @escaping (Result<[dataWrapper], AppError>) -> Void) {
+  func getRecipes(from search: String, completionHandler: @escaping (Result<AllRecipes, AppError>) -> Void) {
     // what we want to return as a result is an array of dataWrapper ^^^ because the info we need is that array of each set of info on the weather for that day
-     let forecastURL = "https://api.darksky.net/forecast/15f4a2013db1f1490f3d5edf55166c5c/\(coordinates)"
-     guard let url = URL(string: forecastURL) else {
+     let recipeURL = "https://api.spoonacular.com/recipes/search?query=\(search)&number=2&apiKey=4393c4b9c3654e31b84f23fd34566150"
+     guard let url = URL(string: recipeURL) else {
        completionHandler(.failure(.badURL))
        return
      }
@@ -27,9 +27,9 @@ struct DarkSkyAPIClient {
          completionHandler(.failure(error))
        case .success(let data):
          do {
-          let forecastInfo = try JSONDecoder().decode(Forecast.self, from: data)
+          let recipeInfo = try JSONDecoder().decode(AllRecipes.self, from: data)
           //what we decode is a Forecast, not an array of dataWrapper ^^^ because we always decode from the highest level of the model
-          completionHandler(.success(forecastInfo.daily.data))
+          completionHandler(.success(recipeInfo))
          } catch {
            completionHandler(.failure(.couldNotParseJSON(rawError: error)))
          }

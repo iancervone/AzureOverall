@@ -35,7 +35,7 @@ class BrowseCollectionViewCell: UICollectionViewCell {
 // MARK: Initializers
    override init(frame: CGRect) {
        super.init(frame: frame)
-
+      setUpCellView()
    }
    
    required init?(coder: NSCoder) {
@@ -46,6 +46,11 @@ class BrowseCollectionViewCell: UICollectionViewCell {
   
   
 //MARK: Constraints
+  private func setUpCellView() {
+    setUpRecipeImage()
+    setUpRecipeNameLabel()
+    setUpBrowserStackView()
+  }
   
   private func setUpRecipeImage() {
     contentView.addSubview(recipeImage)

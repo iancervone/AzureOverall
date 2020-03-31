@@ -32,7 +32,7 @@ class BrowserView: UIView {
       
 // MARK: Initializers
         override init(frame: CGRect) {
-            super.init(frame: frame)
+            super.init(frame: UIScreen.main.bounds)
             setupViews()
         }
         
@@ -46,7 +46,7 @@ class BrowserView: UIView {
         setupBrowseCollectionView()
       }
       
-//MARK: Private Constraints
+//MARK: Constraints
     //NOTE: the cartIcon anchors the constraints for the other UI elements. Changing the cartIcon constraints will affect the other constraints.
   
       private func setUpCartIcon() {
