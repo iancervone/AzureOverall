@@ -9,22 +9,57 @@
 import UIKit
 
 class RecipeDetailViewController: UIViewController {
+  
+    var recipeDetails: Recipe!
+  
+    var cartCounter = Int(0) {
+      didSet {
+        detailViews.counterLabel.text = String(" \(cartCounter)")
+      }
+    }
+  
+  var detailImage = UIImage() {
+    didSet {
+      detailViews.recipeImage.image = detailImage
+    }
+  }
+  
+    
+  //MARK: UI Elements
+    
+    lazy var detailViews: DetailView = {
+      let detail = DetailView()
+      detail.recipeNameLabel.text = recipeDetails.title
+      detail.servingsLabel.text = String("Servings: \(recipeDetails.servings)")
+      detail.timeLabel.text = String("Cook Time: \(recipeDetails.readyInMinutes)")
+      detail.counterLabel.text = String(" \(cartCounter)")
+      detail.recipeImage.image = detailImage
+      return detail
+    }()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+      getRecipeImage()
+      view.addSubview(detailViews)
+      view.backgroundColor = .systemBackground
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+  
+  
+  func getRecipeImage() {
+    let url = "https://spoonacular.com/recipeImages/\(recipeDetails.imageUrls[0])"
+  ImageHelper.shared.getImage(urlStr: url) {(result) in
+    DispatchQueue.main.async {
+      switch result {
+      case .failure (let error):
+        print(url)
+        print("oh no \(error)")
+      case .success (let image):
+        self.detailImage = image
+      }
     }
-    */
+  }
+  }
 
 }
