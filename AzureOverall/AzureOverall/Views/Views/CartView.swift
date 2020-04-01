@@ -16,11 +16,14 @@ class CartView: UIView {
     label.font = UIFont.systemFont(ofSize: 30, weight: UIFont.Weight.thin)
     label.textAlignment = .center
     label.text = "Cart"
+    label.backgroundColor = .systemBackground
     return label
   }()
 
   lazy var cartTableView: UITableView = {
-    let table = UITableView()
+    let table = UITableView(frame: .zero)
+    table.register(CartTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.cartTableViewCell.rawValue)
+    table.backgroundColor = .systemBackground
     return table
   }()
   
@@ -45,10 +48,10 @@ class CartView: UIView {
     addSubview(titleLabel)
       titleLabel.translatesAutoresizingMaskIntoConstraints = false
       NSLayoutConstraint.activate([
-        titleLabel.topAnchor.constraint(equalTo: topAnchor),
+        titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
         titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
         titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-        titleLabel.heightAnchor.constraint(equalToConstant: 100)
+        titleLabel.heightAnchor.constraint(equalToConstant: 70)
       ])
     }
   
