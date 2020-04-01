@@ -31,7 +31,7 @@ class RecipeDetailViewController: UIViewController {
       let detail = DetailView()
       detail.recipeNameLabel.text = recipeDetails.title
       detail.servingsLabel.text = String("Servings: \(recipeDetails.servings)")
-      detail.timeLabel.text = String("Cook Time: \(recipeDetails.readyInMinutes)")
+      detail.timeLabel.text = String("Cook Time: \(recipeDetails.readyInMinutes) min")
       detail.counterLabel.text = String(" \(cartCounter)")
       detail.recipeImage.image = detailImage
       return detail
