@@ -11,31 +11,24 @@ import UIKit
 class BrowseViewController: UIViewController {
   
 //MARK: Variables
-  
   var recipes: AllRecipes?
   
-//  var recipes = [Recipe]() {
-//    didSet {
-//      browserViews.browseCollectionView.reloadData()
-//    }
-//  }
+  var searchString: String = ""
   
   var cartCounter = Int() {
     didSet {
       
     }
   }
-  
-  var searchString: String = ""
-  
+    
   
 //MARK: UI Elements
-  
   lazy var browserViews: BrowserView = {
     let browser = BrowserView()
     browser.searchBar.delegate = self
     browser.browseCollectionView.dataSource = self
     browser.browseCollectionView.delegate = self
+    browser.cartIcon.addTarget(self, action: #selector(goToCart), for: .touchUpInside)
     return browser
   }()
 
@@ -56,13 +49,9 @@ class BrowseViewController: UIViewController {
       SpoonacularAPIClient.manager.getRecipes(from: self.searchString){(result) in
         switch result {
         case let .success(recipeResults):
-          
           self.recipes = recipeResults
           self.browserViews.browseCollectionView.reloadData()
-          print(self.recipes?.results[0].title)
-          print("winning")
         case let .failure(error):
-          print("womp womp")
           self.displayErrorAlert(with: error)
         }
       }
@@ -75,7 +64,13 @@ class BrowseViewController: UIViewController {
     present(alertVC, animated: true, completion: nil)
   }
 
-
+//MARK: OBJC Methods
+  
+  @objc func goToCart() {
+    let nextVC = CartViewController()
+    let navController = UINavigationController(rootViewController: nextVC)
+    self.present(navController, animated: true, completion: nil)
+  }
 }
 
 
@@ -115,10 +110,10 @@ extension BrowseViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let nextVC = RecipeDetailViewController()
-    nextVC.modalPresentationStyle = .currentContext
+    let navController = UINavigationController(rootViewController: nextVC)
     let selectedRecipe = recipes?.results[indexPath.row]
     nextVC.recipeDetails = selectedRecipe
-    self.present(nextVC, animated: true, completion: nil)
+    self.present(navController, animated: true, completion: nil)
   }
 }
 
