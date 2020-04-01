@@ -35,6 +35,7 @@ class CartTableViewCell: UITableViewCell {
   lazy var counterLabel: UILabel = {
       let label = UILabel()
       label.font = UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.regular)
+      label.textColor = .systemBlue
       return label
     }()
   
@@ -80,6 +81,7 @@ class CartTableViewCell: UITableViewCell {
     let stackView = UIStackView(arrangedSubviews: [counterLabel, cartIcon])
     stackView.axis = .vertical
     stackView.distribution = .fillProportionally
+    stackView.alignment = .center
     contentView.addSubview(stackView)
     stackView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([

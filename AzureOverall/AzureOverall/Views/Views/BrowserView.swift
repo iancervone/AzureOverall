@@ -25,6 +25,7 @@ class BrowserView: UIView {
       lazy var counterLabel: UILabel = {
           let label = UILabel()
           label.font = UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.regular)
+          label.textColor = .systemBlue
           return label
         }()
       

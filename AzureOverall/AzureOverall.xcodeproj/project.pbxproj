@@ -117,7 +117,6 @@
 				3C557091242E483B0079769D /* ViewController.swift */,
 				3C557093242E483B0079769D /* Main.storyboard */,
 				3C55709E242E483F0079769D /* Info.plist */,
-				3C557096242E483B0079769D /* AzureOverall.xcdatamodeld */,
 			);
 			path = AzureOverall;
 			sourceTree = "<group>";
@@ -147,6 +146,7 @@
 			children = (
 				3C5570C1242E630F0079769D /* Constants.swift */,
 				3C5570C7242E7A4D0079769D /* RecipeModel.swift */,
+				3C557096242E483B0079769D /* AzureOverall.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";

@@ -12,3 +12,4 @@ enum CellIdentifiers: String {
     case browseCollectionViewCell
     case cartTableViewCell
 }
+

@@ -56,6 +56,8 @@ class DetailView: UIView {
   
   lazy var cartCountStepper: UIStepper = {
     let stepper = UIStepper()
+    stepper.minimumValue = 0.0
+    stepper.stepValue = 1.0
     return stepper
   }()
   
@@ -126,7 +128,7 @@ class DetailView: UIView {
       stackView.bottomAnchor.constraint(equalTo: cartCountStepper.topAnchor),
       stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
       stackView.heightAnchor.constraint(equalToConstant: 45),
-      stackView.widthAnchor.constraint(equalToConstant: 45)
+      stackView.widthAnchor.constraint(equalToConstant: 100)
     ])
   }
       
@@ -136,7 +138,7 @@ class DetailView: UIView {
     NSLayoutConstraint.activate([
       cartCountStepper.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -40),
       cartCountStepper.centerXAnchor.constraint(equalTo: centerXAnchor),
-      cartCountStepper.widthAnchor.constraint(equalToConstant: 100),
+      cartCountStepper.widthAnchor.constraint(equalToConstant: 120),
       cartCountStepper.heightAnchor.constraint(equalToConstant: 50)
         ])
   }
