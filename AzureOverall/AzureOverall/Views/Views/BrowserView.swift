@@ -16,15 +16,15 @@ class BrowserView: UIView {
         return search
       }()
       
-      lazy var cartIcon: UIImageView = {
-        let image = UIImageView()
-        return image
+      lazy var cartIcon: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "cart.fill"), for: .normal)
+        return button
       }()
       
       lazy var browseCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-//        layout.minimumLineSpacing = 
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.backgroundColor = .systemBackground
         collection.register(BrowseCollectionViewCell.self, forCellWithReuseIdentifier: CellIdentifiers.browseCollectionViewCell.rawValue)
@@ -55,7 +55,7 @@ class BrowserView: UIView {
         cartIcon.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
           cartIcon.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-          cartIcon.trailingAnchor.constraint(equalTo: trailingAnchor),
+          cartIcon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
           cartIcon.heightAnchor.constraint(equalToConstant: 45),
           cartIcon.widthAnchor.constraint(equalToConstant: 45)
         ])
@@ -67,7 +67,7 @@ class BrowserView: UIView {
         NSLayoutConstraint.activate([
           searchBar.topAnchor.constraint(equalTo: cartIcon.topAnchor),
           searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
-          searchBar.trailingAnchor.constraint(equalTo: cartIcon.leadingAnchor),
+          searchBar.trailingAnchor.constraint(equalTo: cartIcon.leadingAnchor, constant: 10),
           searchBar.heightAnchor.constraint(equalTo: cartIcon.heightAnchor)
         ])
       }

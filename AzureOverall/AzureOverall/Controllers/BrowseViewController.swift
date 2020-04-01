@@ -20,6 +20,12 @@ class BrowseViewController: UIViewController {
 //    }
 //  }
   
+  var cartCounter = Int() {
+    didSet {
+      
+    }
+  }
+  
   var searchString: String = ""
   
   
@@ -81,16 +87,17 @@ extension BrowseViewController: UICollectionViewDelegate {
   
 }
 
+
 extension BrowseViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return recipes?.results.count ?? 0
   }
+  
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifiers.browseCollectionViewCell.rawValue, for: indexPath) as! BrowseCollectionViewCell
     cell.recipeNameLabel.text = recipes?.results[indexPath.row].title ?? " "
     cell.servingsLabel.text = "Servings:  \(recipes!.results[indexPath.row].servings)"
       cell.timeLabel.text = "Cook time: \(recipes!.results[indexPath.row].readyInMinutes) min"
-    
     guard let url = "https://spoonacular.com/recipeImages/\(recipes!.results[indexPath.row].imageUrls[0])" as? String else { return cell}
       ImageHelper.shared.getImage(urlStr: url) {(result) in
         DispatchQueue.main.async {
@@ -100,14 +107,18 @@ extension BrowseViewController: UICollectionViewDataSource {
             print("oh no \(error)")
           case .success (let image):
             cell.recipeImage.image = image
-            cell.recipeImage.contentMode = .center
-            cell.recipeImage.contentMode = .scaleAspectFit
           }
         }
       }
-    
-    
     return cell
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let nextVC = RecipeDetailViewController()
+    nextVC.modalPresentationStyle = .currentContext
+    let selectedRecipe = recipes?.results[indexPath.row]
+    nextVC.recipeDetails = selectedRecipe
+    self.present(nextVC, animated: true, completion: nil)
   }
 }
 

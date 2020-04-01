@@ -27,6 +27,7 @@
 		3C5570CC242E8C3B0079769D /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570CB242E8C3B0079769D /* NetworkHelper.swift */; };
 		3C5570CE242E8C5F0079769D /* SpoonacularAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570CD242E8C5F0079769D /* SpoonacularAPIClient.swift */; };
 		3C5570D02433C6100079769D /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570CF2433C6100079769D /* ImageHelper.swift */; };
+		3C5570D2243406940079769D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5570D1243406940079769D /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		3C5570CB242E8C3B0079769D /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		3C5570CD242E8C5F0079769D /* SpoonacularAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonacularAPIClient.swift; sourceTree = "<group>"; };
 		3C5570CF2433C6100079769D /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		3C5570D1243406940079769D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				3C5570C3242E6B1C0079769D /* BrowserView.swift */,
+				3C5570D1243406940079769D /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			files = (
 				3C5570CC242E8C3B0079769D /* NetworkHelper.swift in Sources */,
 				3C557092242E483B0079769D /* ViewController.swift in Sources */,
+				3C5570D2243406940079769D /* DetailView.swift in Sources */,
 				3C557098242E483B0079769D /* AzureOverall.xcdatamodeld in Sources */,
 				3C5570BE242E49CF0079769D /* BrowseCollectionViewCell.swift in Sources */,
 				3C5570C0242E49E70079769D /* CartTableViewCell.swift in Sources */,

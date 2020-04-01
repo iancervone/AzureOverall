@@ -13,6 +13,8 @@ class BrowseCollectionViewCell: UICollectionViewCell {
 //MARK: UI Elements
   lazy var recipeImage: UIImageView = {
     let image = UIImageView()
+    image.contentMode = .center
+    image.contentMode = .scaleAspectFit
     return image
   }()
 
