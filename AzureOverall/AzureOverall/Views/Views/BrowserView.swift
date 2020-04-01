@@ -21,6 +21,12 @@ class BrowserView: UIView {
         button.setImage(UIImage(systemName: "cart.fill"), for: .normal)
         return button
       }()
+  
+      lazy var counterLabel: UILabel = {
+          let label = UILabel()
+          label.font = UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.regular)
+          return label
+        }()
       
       lazy var browseCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -42,22 +48,24 @@ class BrowserView: UIView {
         }
       
       private func setupViews() {
-        setUpCartIcon()
+        setUpCountStackView()
         setupSearchBar()
         setupBrowseCollectionView()
       }
       
 //MARK: Constraints
-    //NOTE: the cartIcon anchors the constraints for the other UI elements. Changing the cartIcon constraints will affect the other constraints.
   
-      private func setUpCartIcon() {
-        addSubview(cartIcon)
-        cartIcon.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-          cartIcon.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-          cartIcon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-          cartIcon.heightAnchor.constraint(equalToConstant: 45),
-          cartIcon.widthAnchor.constraint(equalToConstant: 45)
+  private func setUpCountStackView() {
+    let stackView = UIStackView(arrangedSubviews: [cartIcon, counterLabel])
+    stackView.axis = .horizontal
+    stackView.distribution = .fillProportionally
+    self.addSubview(stackView)
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+          stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+          stackView.heightAnchor.constraint(equalToConstant: 45),
+          stackView.widthAnchor.constraint(equalToConstant: 60)
         ])
       }
       
@@ -65,10 +73,10 @@ class BrowserView: UIView {
         addSubview(searchBar)
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-          searchBar.topAnchor.constraint(equalTo: cartIcon.topAnchor),
+          searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
           searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
-          searchBar.trailingAnchor.constraint(equalTo: cartIcon.leadingAnchor, constant: 10),
-          searchBar.heightAnchor.constraint(equalTo: cartIcon.heightAnchor)
+          searchBar.trailingAnchor.constraint(equalTo: cartIcon.leadingAnchor, constant: -15),
+          searchBar.heightAnchor.constraint(equalToConstant: 45)
         ])
       }
   

@@ -15,7 +15,7 @@ class BrowseViewController: UIViewController {
   
   var searchString: String = ""
   
-  var cartCounter = Int() {
+  var cartCounter = Int(0) {
     didSet {
       
     }
@@ -28,6 +28,7 @@ class BrowseViewController: UIViewController {
     browser.searchBar.delegate = self
     browser.browseCollectionView.dataSource = self
     browser.browseCollectionView.delegate = self
+    browser.counterLabel.text = " \(cartCounter)"
     browser.cartIcon.addTarget(self, action: #selector(goToCart), for: .touchUpInside)
     return browser
   }()
